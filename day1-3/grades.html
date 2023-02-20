@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+    <!-- Internal Css  -->
+    <style>
+        /* Css for number input field */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #Home{
+            padding: 30px;
+            border-radius: 5px;
+            width: 50%;
+            margin: 200px auto;
+            text-align: center;
+            box-shadow: 4px 10px 33px 0px rgba(0,0,0,0.75);;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="Home">
+        <h1>Student Grades</h1>
+        <br>
+        <!-- Form -->
+        <form action="#">
+            <div class="form_group">
+                <!-- Input Name -->
+                <label for="name">Enter Your Name : </label>
+                <input type="text" id="name" name="username">
+            </div>
+            <br>
+            <div class="form_group">
+                <!-- Input Marks -->
+                <label for="marks">Enter Marks : </label>
+                <input type="number" id="marks" name="marks">
+            </div>
+            <br>
+            <div class="form_group">
+                <!-- Onclick Event on submit button and passing the input value as a Argument -->
+                <input type="button" value="submit" onclick="check(document.getElementById('name').value,document.getElementById('marks').value)">
+            </div>
+        </form>
+    
+        <h2 id="demo" style="color:rgb(199, 119, 27) "></h2>
+        <h2 id="demo1" style="color:rgb(226, 56, 56)"></h2>
+    </section>
+
+    <script>
+        // Function Defination
+        check=(name,marks)=>{
+            // Incase of Empty Input field.
+            if(name===''||marks==='')
+            {
+                alert('Please Enter the input');
+            }
+            // Checking for different cases.
+            else{
+                if(marks>=97&&marks<=100)
+                {
+                    console.log(document.getElementById('demo').innerHTML = name +' has scored A+');
+                }
+                else if(marks>=93&&marks<=96)
+                {
+                    console.log(document.getElementById('demo').innerHTML = name + 'has scored A');
+
+                }
+                else if(marks>=90&&marks<=92)
+                {
+                    console.log(document.getElementById('demo').innerHTML = name + 'has scored A-');
+                }
+                else if(marks>=87&&marks<=89)
+                {
+                    document.getElementById('demo').innerHTML = name +' has scored B+';
+
+                }
+                else if(marks>=83&&marks<=86)
+                {
+                    document.getElementById('demo').innerHTML = name+ ' has scored B';
+
+                }
+                else if(marks>=80&&marks<=82)
+                {
+                    document.getElementById('demo').innerHTML = name+ ' has scored B-';
+
+                }
+                else if(marks>=77&&marks<=79)
+                {
+                    document.getElementById('demo').innerHTML = name + ' has scored C+ ';
+
+                }
+                else if(marks>=73&&marks<=76)
+                {
+                    document.getElementById('demo').innerHTML = name + ' has scored C';
+
+                }
+                else if(marks>=70&&marks<=72)
+                {
+                    document.getElementById('demo').innerHTML = name + ' has scored C- ';
+
+                }
+                else if(marks>=67&&marks<=69)
+                {
+                    document.getElementById('demo').innerHTML = name + ' has scored D+ ' ;
+
+                }
+                else if(marks>=65&&marks<=66)
+                {
+                    document.getElementById('demo').innerHTML = name  + 'has scored D ';
+
+                }
+                else{
+                    document.getElementById('demo').innerHTML = name + ' has scored E ';
+
+                }
+                // Updating the Marks Input to Null.
+                document.getElementById('marks').value=''
+            }
+        }
+    </script>
+    
+</body>
+</html>

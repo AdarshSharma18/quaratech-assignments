@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Printing</title>
+    <!-- Internal CSS -->
+    <style>
+        /* Css for number input field */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #Home{
+            padding: 30px;
+            border-radius: 5px;
+            width: 50%;
+            margin: 200px auto;
+            text-align: center;
+            box-shadow: 4px 10px 33px 0px rgba(0,0,0,0.75);;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <section id="Home">
+        <h1> Pattern Printing </h1>
+        <br>
+        <!-- Form -->
+        <form action="#">
+            <div class="form_group">
+                <label for="Number"> Number Of Pattern : </label>
+                <input type="number" id="intval">
+            </div>
+            <br>
+            <div class="form_group">
+
+                <!-- Onclick Event on submit button and passing the input value as a Argument -->
+                <input type="button" value="submit" onclick="check(document.getElementById('intval').value)">
+            </div>
+        </form>
+
+        <!-- Success and Error Message -->
+        <h2 id="demo" style="color:rgb(27, 199, 27)"></h2>
+        <h2 id="demo1" style="color:rgb(226, 56, 56)"></h2>
+    </section>
+
+    <script>
+        // Function Defination
+        check = (input)=>{
+            // Incase of Empty Input field.
+                if(input===''){
+                    alert('Enter the Input value');
+                }
+                else{
+                    document.getElementById('demo').innerHTML = 'Desired Out Put is';
+                
+                        for (let i = 1; i <= input; i++) {
+                        // printing spaces
+                        for (let j = 0; j < input - i; j++) {
+                            document.getElementById('demo1').innerHTML += " &nbsp ";
+                        }
+                        // printing star
+                        for (let k = 0; k < i; k++) {
+                            document.getElementById('demo1').innerHTML += "*";
+                        }
+                            document.getElementById('demo1').innerHTML += "<br>";
+                        }
+                    
+                }
+        }
+
+    </script>
+    
+</body>
+</html>
