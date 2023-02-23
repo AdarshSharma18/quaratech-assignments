@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calc</title>
+     <!-- Internal CSS -->
+     <style>
+        /* css for number input field */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #Home{
+            padding: 30px;
+            border-radius: 5px;
+            width: 50%;
+            margin: 200px auto;
+            text-align: center;
+            box-shadow: 4px 10px 25px 0px rgba(0,0,0,0.7);;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            box-shadow: 4px 5px 10px 0px rgba(0,0,0,0.5);
+            border-radius: 5px;
+            padding: 10px;
+            color: chocolate;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <section id="Home">
+
+        <h1> Claculate The Area of Given Shapes.</h1>
+        <br>
+        <ul>
+            <li>Circle</li>
+            <li>Triangle</li>
+            <li>Square</li>
+            <li>Rectangle</li>
+        </ul>
+        <br>
+        <br>
+        <!-- Form -->
+        <form action="#">
+            <div class="form_group">
+                <!-- Shape as an Input -->
+                <label for="str">Enter Shape Name : </label>
+                <input type="text" id="str" autocomplete="off">
+            </div>
+            <br>
+            <div class="form_group">
+                <!-- Onclick Event on submit button and passing the input value as a Argument -->
+                <input type="button" value="submit" onclick="check(document.getElementById('str').value)">
+            </div>
+        </form>
+
+        <!-- Success Message -->
+    
+        <h2 id="demo" style="color:rgb(27, 199, 27)"></h2>
+    </section>
+
+    <script>
+        // Function Defination
+        const check=(str)=>{
+            // IF the Input Value is Null
+            if(str===''){
+                alert('Please Fill the Input Field ')
+                document.getElementById('str').value='';
+            }
+            // Conditional Statement for calculating Area of Circle
+            else if(str==='circle'||str==='Circle'){
+                // User Input
+                let r = parseInt(prompt("Enter the Radius."));
+                let area = 3.14*(r*r);
+                document.getElementById('demo').innerHTML="Area of Entered Shape, Circle is : "+ area;
+                document.getElementById('str').value='';
+            }
+            // Conditional Statement for calculating Area of Triangle
+            else if(str==='triangle'||str==='Triangle'){
+                // User Input
+                let h = parseInt(prompt("Enter the Height."));
+                let b = parseInt(prompt("Enter the Base."));
+                let area = 1/2*(b*h);
+                document.getElementById('demo').innerHTML="Area of Entered Shape, Triangle is : "+ area;
+                document.getElementById('str').value='';
+            }
+            // Conditional Statement for calculating Area of Square
+            else if(str==='square'||str==='Square'){
+                // User Input
+                let s = parseInt(prompt("Enter the Side."));
+                let area = s*s;
+                document.getElementById('demo').innerHTML="Area of Entered Shape, Square is : "+ area;
+                document.getElementById('str').value='';
+            }
+            // Conditional Statement for calculating Area of Rectangle
+            else if(str==='rectangle'||str==='Rectangle'){
+                // User Input
+                let l = parseInt(prompt("Enter the Length."));
+                let b = parseInt(prompt('Enter the Width'))
+                let area = l*b;
+                document.getElementById('demo').innerHTML="Area of Entered Shape, Rectangle is : "+ area;
+                document.getElementById('str').value='';
+            }
+            // In case User has Input any other Shape Out of the given Shapes.
+            else{
+                alert('You have Entered the Wrong Shape')
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year</title>
+    <!-- Internal CSS -->
+    <style>
+        /* css for number input field */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        #Home{
+            padding: 30px;
+            border-radius: 5px;
+            width: 50%;
+            margin: 200px auto;
+            text-align: center;
+            box-shadow: 4px 10px 33px 0px rgba(0,0,0,0.75);;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section -->
+    <section id="Home">
+
+        <h1> Leap Year Check</h1>
+        <br>
+        <!-- Form -->
+        <form action="#">
+            <div class="form_group">
+                <label for="Number">Enter Any Year : </label>
+                <input type="number" id="year">
+            </div>
+            <br>
+            <div class="form_group">
+                <!-- Onclick Event on submit button and passing the input value as a Argument -->
+                <input type="button" value="submit" onclick="check()">
+            </div>
+        </form>
+
+        <!-- Success and Error Message -->
+    
+        <h2 id="demo" style="color:rgb(27, 199, 27)"></h2>
+        <h2 id="demo1" style="color:rgb(226, 56, 56)"></h2>
+    </section>
+    <script>
+        // Function Defination
+        const check=()=>{
+            
+            year = document.getElementById('year').value;
+
+            if(year==''){
+                alert('please enter the value')
+            }
+
+            else{
+                /* Conditional Statement(Leap Year) : If the Normal year is divisible by 4 and for Century year
+                it should only be divisible by 400. */
+                if(year%4==0 && year%100!=0 || year%400==0)
+                {
+                    document.getElementById('demo').innerHTML= year + " is a leap year";
+
+                    // Empty Input Value 
+                    document.getElementById('year').value = '';
+                }
+                else{
+                    document.getElementById('demo').innerHTML= year + " is not a leap year";
+                    console.log("value = ",year);
+                    let i = year;
+                    document.getElementById('year').value = '';
+                    // Finding the next upcoming Leap Year.
+                    for(i;true;i++){
+
+                        if(i%4==0 && i%100!=0 || i%400==0)
+                        {
+                            setTimeout((function(){
+                                document.getElementById('demo1').innerHTML="The next upcoming leap year is "+i;
+                            }),2000)
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+</html>
