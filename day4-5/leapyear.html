@@ -27,7 +27,7 @@
     <!-- Section -->
     <section id="Home">
 
-        <h1> Leap Year Check</h1>
+        <h1> Leap Year Calculator</h1>
         <br>
         <!-- Form -->
         <form action="#">
@@ -66,6 +66,9 @@
 
                     // Empty Input Value 
                     document.getElementById('year').value = '';
+                }
+                if(year<0){
+                    alert(`Year can't be in negative Value`)
                 }
                 else{
                     document.getElementById('demo').innerHTML= year + " is not a leap year";
