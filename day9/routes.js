@@ -24,20 +24,26 @@ const requestHandler = (req,res) =>{
         return req.on('end',()=>{
             const parsedBody = Buffer.concat(body).toString();
             const message = parsedBody.split('=')[1];
-            console.log(`value of message is : ${message}`)
-            
-            // Local Variable
-            let value ='';
-            // Looping Statement for the table.
-            for(let i=1;i<=10;i++){
-                value += `${message} * ${i} = ${message * i}\n`;
+            // console.log(`value of message is : ${message}`)
+            if(message===''){
+                console.log('please enter the value.')
             }
-            // Pushing the data into the file.
-            fs.writeFile(`table-${message}.txt`, value,err =>{
-                res.statusCode = 302;
-                res.setHeader('Location','/');
-                return res.end();
-            });
+            else{
+                // Local Variable
+                let value ='';
+                // Looping Statement for the table.
+                for(let i=1;i<=10;i++){
+                    value += `${message} * ${i} = ${message * i}\n`;
+                }
+                // Pushing the data into the file.
+                fs.writeFile(`table-${message}.txt`, value,err =>{
+                    res.statusCode = 302;
+                    res.setHeader('Location','/');
+                    return res.end();
+                });
+
+            }
+            
         });
     }
     res.setHeader('Content-Type','text/html');
